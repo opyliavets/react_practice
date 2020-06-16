@@ -1,0 +1,11 @@
+.Layout{
+    height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.Layout main{
+    display: flex;
+    flex-flow: column nowrap;
+    flex-grow: 1;
+}
