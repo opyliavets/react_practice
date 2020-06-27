@@ -11,10 +11,10 @@
 }
 
 .AnswerItem.success{
-    background: rgba (161, 240, 69, .7);
+    background: rgba(161, 240, 69, .7);
 
 }
 
 .AnswerItem.error{
-    background: rgba (240, 87, 108, .7);    
+    background: rgba(240, 87, 108, .7);    
 }
