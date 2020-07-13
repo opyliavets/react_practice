@@ -11,8 +11,7 @@ const FinishedQuiz = props => {
     }, 0)
 
     return (
-        <div className={classes.FinishedQuiz}>
-            Finished!
+        <div className={classes.FinishedQuiz}>            
             <ul>
                 {props.quiz.map((quizItem, index) => {
                     const cls = [
@@ -24,16 +23,14 @@ const FinishedQuiz = props => {
                         <li key={index}>
                             <strong>{index + 1}</strong>.&nbsp;
                             {quizItem.question}
-                            <i className={cls.join(' ')}></i>
+                            <i className={cls.join(' ')}/>
                         </li>
                     )
-                }) }
-
-                
+                }) }            
                 
             </ul>
             
-            <p>Правильно {successCount} из {props.quiz.length}</p>
+            <p>Правильно {successCount} з {props.quiz.length}</p>
 
             <div>
                 <Button
@@ -45,7 +42,7 @@ const FinishedQuiz = props => {
                     <Button                
                         type='success'     
                     >
-                        Перейти к списку
+                        Перейти в список
                     </Button>
                 </Link>
             </div>

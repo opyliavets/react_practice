@@ -1,9 +1,11 @@
+
+
 import React, { Component } from 'react'
 import classes from './Layout.module.css'
 import MenuToggle from '../../Components/Navigation/MenuToggle/MenuToggle'
 import Drawer from '../../Components/Navigation/Drawer/Drawer'
 
-class Layout extends React.Component {
+class Layout extends Component {
     state = {
         menu: false,
     }
