@@ -6,7 +6,8 @@ import {
     FETCH_QUIZ_SUCCESS,
     QUIZ_SET_STATE,
     FINISH_QUIZ,
-    QUIZ_NEXT_QUESTION
+    QUIZ_NEXT_QUESTION,
+    QUIZ_RETRY
 } from './actionTypes'
 
 export function fetchQuizes() {
@@ -91,6 +92,13 @@ export function quizNextQuestion(number) {
     }
 }
 
+export function retryQuiz() {
+    return {
+        type: QUIZ_RETRY,
+
+    }
+}
+
 export function quizAnswerClick(answerId) {
     return (dispatch, getState) => {
         const state = getState().quiz
@@ -135,5 +143,5 @@ export function quizAnswerClick(answerId) {
 }
 
 export function isQuizFinished(state){
-    return state.activeQuestion + 1 === state.quiz.length
+    return state.activeQuestion + 1 === state.quiz.quiz.length
 }

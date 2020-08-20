@@ -4,22 +4,16 @@ import ActiveQuiz from '../../Components/ActiveQuiz/ActiveQuiz'
 import FinishedQuiz from '../../Components/FinishedQuiz/FinishedQuiz'
 import Loader from '../../Components/UI/Loader/Loader'
 import { connect } from 'react-redux'
-import {fetchQuizById, quizAnswerClick} from '../../Store/Actions/quiz'
+import {fetchQuizById, quizAnswerClick, retryQuiz} from '../../Store/Actions/quiz'
 
 class Quiz extends Component{
 
-    onRetryHandler = () => {
-        this.setState({
-            activeQuestion: 0,
-            answerState: null,
-            isFinished: false,
-            results: {}
-        })
+    componentDidMount() {        
+        this.props.fetchQuizById(this.props.match.params.id)
     }
 
-    componentDidMount() {
-        console.log(this.props)
-        this.props.fetchQuizById(this.props.match.params.id)
+    componentWillUnmount() {
+        this.props.retryQuiz()
     }
    
     render() {
@@ -35,7 +29,7 @@ class Quiz extends Component{
                                 ? <FinishedQuiz
                                     results={this.props.results}
                                     quiz={this.props.quiz.quiz}
-                                    onRetry={this.onRetryHandler}
+                                    onRetry={this.props.retryQuiz}
                                 />
                                 : <ActiveQuiz
                                     answers={this.props.quiz.quiz[this.props.activeQuestion].answers}
@@ -68,6 +62,7 @@ function mapDispatchToProps(dispatch) {
     return {
         fetchQuizById: id => dispatch(fetchQuizById(id)),
         quizAnswerClick: answerId => dispatch(quizAnswerClick(answerId)),
+        retryQuiz: () => dispatch(retryQuiz())
     }
 }
 
