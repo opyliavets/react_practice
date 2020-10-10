@@ -30,12 +30,12 @@ export function auth(email, password, isLogin) {
 export function autoLogout(time) {
     return dispatch => {
         setTimeout(() => {
-            dispatch(logOut())
+            dispatch(logout())
         }, time * 1000)    
     }
 }
 
-export function logOut() {
+export function logout() {
     localStorage.removeItem('token')
     localStorage.removeItem('userId')
     localStorage.removeItem('expirationDate')

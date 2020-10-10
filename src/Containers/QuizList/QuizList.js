@@ -7,11 +7,6 @@ import {connect} from 'react-redux'
 
 class QuizList extends Component {
 
-    // state = {
-    //     quizes: [],
-    //     loading: true
-    // }
-
     renderQuizes() {
         return this.props.quizes.map((quiz) => {
             return (
@@ -28,7 +23,7 @@ class QuizList extends Component {
     }
 
     componentDidMount() {
-        this.props.fetchQuizes()   
+        this.props.fetchQuizes()           
     }
 
     render() {
